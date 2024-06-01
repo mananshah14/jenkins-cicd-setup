@@ -30,18 +30,10 @@ To get started with this project, follow these steps:
 To run the backend server, follow these steps:
 
 1. Navigate to the backend directory.
-2. Build the Image using the given DockerFile.
-3. Run the Backend server by running.
+2. Run the Jenkinsfile in the jenkins server which Build, Test and Deploy the entire backend.  
 
-               OR
 
-Run the Jenkinsfile in the jenkins server which Build, Test and Deploy the entire backend. 
-   
-```
-docker-compose up -d
-```
-
-Once your backend is up and running, can proceed with setting up of frontend, Do Ensure to make the below configuration  before setting up th frontend
+Once your backend is up and running, you can proceed with setting up of frontend, Do Ensure to make the below configuration  before setting up th frontend
 
 ## Configuration
 
