@@ -43,15 +43,12 @@ docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
 1.4.4 Create an admin user when prompted.
 
+
 2. Demo Repository for Testing which consists of docker based deployment & Basic CI Checks:
 
-Install Docker Pipeline Plugin 
-
-2.1 Install Docker Pipeline Plugin
-
-2.1.1 Go to Manage Jenkins > Manage Plugins.
-
-2.1.2 Install the Docker Pipeline plugin.
+- Install Docker Pipeline Plugin
+-  Go to Manage Jenkins > Manage Plugins.
+- Install the Docker Pipeline plugin.
 
 A demo repository is provided at demo-fe-be/. which consists of backend and frontend aplication of a 2 Tier application. You can build and test the microservices with the help of provided Jenkinsfile.
 
@@ -65,22 +62,24 @@ To stop the Jenkins setup, run:
 docker-compose down
 ```
 ### Final Folder Structure:
+```
 jenkins-cicd-setup/
-
-├── docker-compose.yml
-├── jenkins-master/
-│ ├── Dockerfile
-│ ├── plugins.txt
-│ └── init.groovy.d/
-│ └── basic-setup.groovy
-├── jenkins-agent/
-│ └── Dockerfile
-├── demo-repo/
-│ ├── Jenkinsfile
-│ ├── README.md
-│ ├── package.json
-│ ├── src/
-│ │ └── index.js
-│ └── test/
-└── README.md
-
+  ├── docker-compose.yml
+  ├── demo-fe-be/
+  │ ├── frontend
+  │ │ ├──  docker-compose.yaml
+  │ │ ├──  Dockerfile
+  │ │ ├──  Jenkinsfile
+  │ │ ├──  package.json
+  │ │ ├── package-lock.json
+  │ │ ├── public
+  │ │ ├── README.md
+  │ │ ├── src
+  │ ├── backend
+  │ │ ├── app.py
+  │ │ ├── docker-compose.yaml
+  │ │ ├──Dockerfile
+  │ │ ├── Jenkinsfile
+  │ │ ├── requirements.txt
+  ├── README.md
+```
