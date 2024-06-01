@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        REPO_URL = 'https://github.com/DhruvBundheliya/custom-fe-be.git'
+        REPO_URL = 'https://github.com/mananshah14/jenkins-cicd-setup.git'
         DOCKER_IMAGE_NAME = 'frontend'
         BACKEND_URL = 'http://127.0.0.1:5000' // You can modify this as needed
     }
