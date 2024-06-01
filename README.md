@@ -25,65 +25,30 @@ docker network create jenkins
 ```
 docker volume create jenkins_data
 ```
-1.3 Docker Compose File
-Create a docker-compose.yml file with the following content to set up Jenkins and an agent:
-```
-version: '3.8'
 
-services:
-  jenkins:
-    image: jenkins/jenkins:lts
-    container_name: jenkins
-    restart: always
-    networks:
-      - jenkins
-    volumes:
-      - jenkins_data:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - 8080:8080
-      - 50000:50000
-
-  jenkins-agent:
-    image: jenkins/inbound-agent:latest
-    container_name: jenkins-agent
-    restart: always
-    networks:
-      - jenkins
-    environment:
-      - JENKINS_URL=http://jenkins:8080
-      - JENKINS_SECRET=<AGENT_SECRET>
-      - JENKINS_AGENT_NAME=jenkins-agent
-
-networks:
-  jenkins:
-
-volumes:
-  jenkins_data:
-```
-1.4 Start Jenkins
+1.3 Start Jenkins
 Run the following command to start Jenkins:
 ```
 docker-compose up -d
 ```
-1.5 Initial Jenkins Setup
-1.5.1 Open your browser and navigate to http://localhost:8080.
-1.5.2 Retrieve the initial admin password:
+1.4 Initial Jenkins Setup
+1.4.1 Open your browser and navigate to http://localhost:8080.
+1.4.2 Retrieve the initial admin password:
 ```
 docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 ```
-1.5.3 Complete the setup wizard and install suggested plugins.
-1.5.4 Create an admin user when prompted.
+1.4.3 Complete the setup wizard and install suggested plugins.
+1.4.4 Create an admin user when prompted.
 
-1.6 Configure Jenkins Agent
-1.6.1 Go to Manage Jenkins > Manage Nodes and Clouds.
-1.6.2 Click on New Node.
-1.6.3 Configure the agent with the following details:
+1.5 Configure Jenkins Agent
+1.5.1 Go to Manage Jenkins > Manage Nodes and Clouds.
+1.5.2 Click on New Node.
+1.5.3 Configure the agent with the following details:
    - Name: jenkins-agent
    - Remote root directory: /home/jenkins/agent
    - Launch method: Launch agent via Java Web Start.
    - Add the secret from the JENKINS_SECRET environment variable in the docker-compose.yml file.
-1.6.3 Save and launch the agent.
+1.5.3 Save and launch the agent.
 
 
 2. Support docker based deployment & Basic CI Checks
