@@ -7,9 +7,8 @@ To set up a Jenkins environment for Continuous Integration (CI) and Continuous D
 - Docker Compose installed on your local machine.
 
 ### Steps Overview:
-  1. Set up Jenkins Master & auto-Scaling Agents to Handle Multiple CI/CD Pipelines
-  2. Support docker based deployment & Basic CI Checks
-  3. Demo Repository for Testing
+  1. Set up Jenkins Master & auto-Scaling Agents to Handle Multiple CI/CD Pipelines 
+  2. Demo Repository for Testing which consists of docker based deployment & Basic CI Checks
     
     
 ### Detailed Steps:
@@ -44,22 +43,9 @@ docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
 1.4.4 Create an admin user when prompted.
 
-1.5 Configure Jenkins Agent
+2. Demo Repository for Testing which consists of docker based deployment & Basic CI Checks:
 
-1.5.1 Go to Manage Jenkins > Manage Nodes and Clouds.
-
-1.5.2 Click on New Node.
-
-1.5.3 Configure the agent with the following details:
-   - Name: jenkins-agent
-   - Remote root directory: /home/jenkins/agent
-   - Launch method: Launch agent via Java Web Start.
-   - Add the secret from the JENKINS_SECRET environment variable in the docker-compose.yml file.
-
-1.5.3 Save and launch the agent.
-
-
-2. Support docker based deployment & Basic CI Checks
+Install Docker Pipeline Plugin 
 
 2.1 Install Docker Pipeline Plugin
 
@@ -67,10 +53,7 @@ docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
 2.1.2 Install the Docker Pipeline plugin.
 
-
-Demo Repository:
-A demo repository is provided at demo-repo/. You can set up your pipeline with the provided Jenkinsfile.
-
+A demo repository is provided at demo-fe-be/. which consists of backend and frontend aplication of a 2 Tier application. You can build and test the microservices with the help of provided Jenkinsfile.
 
 The Jenkins master is available at http://localhost:8080.Jenkins agents will automatically scale to handle multiple jobs.
 
@@ -101,7 +84,3 @@ jenkins-cicd-setup/
 │ └── test/
 └── README.md
 
-arduino
-Copy code
-
-By following these instructions, you will have a fully functional Jenkins CI/CD environment 
