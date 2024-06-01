@@ -11,7 +11,9 @@ pipeline {
         }
         stage("build and test"){
             steps{
-                sh "docker build -t backend ."
+                dir('demo-fe-be/backend') {
+                    sh "docker build -t backend ."
+                }
                 echo 'CodeBuilding using DockerFile is done'
             }
         }
