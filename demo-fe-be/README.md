@@ -2,7 +2,13 @@
 
 This is a two-tier application.
 
-<img width="353" alt="HLD-2-Tier_application" src="https://github.com/mananshah14/jenkins-cicd-setup/assets/45019538/0a3b6c10-556b-472e-8590-a6194e22608e">
+HLD 
+
+<img width="500" alt="HLD-2-Tier_application" src="https://github.com/mananshah14/jenkins-cicd-setup/assets/45019538/0a3b6c10-556b-472e-8590-a6194e22608e">
+
+LLD
+
+<img width="863" alt="LLD-2-Tier_Application" src="https://github.com/mananshah14/jenkins-cicd-setup/assets/45019538/fbee3a3a-a77c-4703-89bc-8c22af3360fc">
 
 
 
