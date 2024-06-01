@@ -50,7 +50,7 @@ docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 -  Go to Manage Jenkins > Manage Plugins.
 - Install the Docker Pipeline plugin.
 
-A demo repository is provided at demo-fe-be/. which consists of backend and frontend aplication of a 2 Tier application. You can build and test the microservices with the help of provided Jenkinsfile.
+A demo repository is provided at demo-fe-be/. which consists of backend and frontend microservices of a 2 Tier application. You can build and test the microservices with the help of provided Jenkinsfile and dockerfile configured.
 
 The Jenkins master is available at http://localhost:8080.Jenkins agents will automatically scale to handle multiple jobs.
 
