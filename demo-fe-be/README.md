@@ -35,26 +35,9 @@ To run the backend server, follow these steps:
 pre-requisites: `python 3.11`
 
 1. Navigate to the backend directory.
-2. Install dependencies for the backend using `pip install requirements.txt`.
-3. Start the backend server on development using `python app.py`.
-
-
-## Building and Serving the Static Content
-To build the static content for production and serve it using serve, follow these steps:
-
-1. Navigate to the frontend directory.
-2. Install dependencies for the front end using `npm install`.
-3. Build the static content using `npm run build`.
-4. Serve the static content using serve:
+2. Build the Image using the given DockerFile.
+3. Run the Backend server by running.
+   
 ```
-npm install -g serve
-serve -s build
+docker-compose up -d
 ```
-
-This will start a server hosting the static content from the build directory. 
-
-### Contributing
-Feel free to contribute to this project by submitting pull requests.
-
-### License
-This project is licensed under the MIT License - see the LICENSE file for details.
