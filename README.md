@@ -67,98 +67,23 @@ docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
 2.1.2 Install the Docker Pipeline plugin.
 
-2.2 Configure Jenkinsfile for Docker Deployment
-In your Jenkinsfile, add steps to build, tag, and push Docker images, and deploy containers. Here's an example:
-```
-pipeline {
-    agent {
-        docker { image 'maven:3.8.1' }
-    }
-    stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-        stage('Build') {
-            steps {
-                sh 'mvn clean compile'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        stage('Static Analysis') {
-            steps {
-                sh 'mvn checkstyle:check'
-            }
-        }
-        stage('Package') {
-            steps {
-                sh 'mvn package'
-            }
-        }
-        stage('Docker Build') {
-            steps {
-                script {
-                    dockerImage = docker.build("my-app:${env.BUILD_ID}")
-                }
-            }
-        }
-        stage('Docker Push') {
-            steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials') {
-                        dockerImage.push("${env.BUILD_ID}")
-                        dockerImage.push("latest")
-                    }
-                }
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'docker-compose up -d'
-            }
-        }
-    }
-    post {
-        always {
-            junit '**/target/surefire-reports/*.xml'
-            archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
-        }
-    }
-}
-```
 
-
-   
-
-
-
-
-
-
-admin.
-Configure Jenkins as needed and create your first pipeline using the demo repository.
 Demo Repository:
 A demo repository is provided at demo-repo/. You can set up your pipeline with the provided Jenkinsfile.
 
-Usage
-The Jenkins master is available at http://localhost:8080.
-Jenkins agents will automatically scale to handle multiple jobs.
-Stopping the Setup
+
+The Jenkins master is available at http://localhost:8080.Jenkins agents will automatically scale to handle multiple jobs.
+
+#### Stopping the Setup
+
 To stop the Jenkins setup, run:
 
-bash
-Copy code
+```
 docker-compose down
-shell
-Copy code
-
+```
 ### Final Folder Structure:
 jenkins-cicd-setup/
+
 ├── docker-compose.yml
 ├── jenkins-master/
 │ ├── Dockerfile
