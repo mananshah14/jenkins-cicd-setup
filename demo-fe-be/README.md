@@ -26,23 +26,7 @@ To get started with this project, follow these steps:
 - View the response received from the backend.
 
 
-## Running the Backend
-To run the backend server, follow these steps:
+## Application Setup
 
-1. Navigate to the backend directory.
-2. Run the Jenkinsfile in the jenkins server which Build, Test and Deploy the entire backend.  
-
-
-Once your backend is up and running, you can proceed with setting up of frontend, Do Ensure to make the below configuration  before setting up th frontend
-
-## Configuration
-
-You can configure the backend URL by updating the `backendUrl` variable in `config.json`. This file can be found in the frontend/src directory.
-
-```json
-{
-  "backendUrl": "http://127.0.0.1:5000"
-}
-```
-
-Update the backendUrl value to match the URL of your backend server.
+- Navigate first to Backend Directory to setup the Flask Backend
+- Once your Backend is up and running can proceed to setup the frontend. 
