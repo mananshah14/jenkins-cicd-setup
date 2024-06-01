@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    
+    stages {
+        
+        stage("code"){
+            steps{
+                git url: "https://github.com/mananshah14/backend-repo.git", branch: "master"
+                echo 'Repository Clone completed'
+            }
+        }
+        stage("build and test"){
+            steps{
+                sh "docker build -t backend ."
+                echo 'CodeBuilding using DockerFile is done'
+            }
+        }
+        stage("push"){
+            steps{
+                withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
+                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
+                sh "docker tag node-app-test-new:latest ${env.dockerHubUser}/node-app-test-new:latest"
+                sh "docker push ${env.dockerHubUser}/node-app-test-new:latest"
+                echo 'image pushed to DockerHub'
+                }
+            }
+        }
+        stage("deploy"){
+            steps{
+                sh "docker-compose down && docker-compose up -d"
+                echo 'Deployment is Completed'
+            }
+        }
+    }
+}
