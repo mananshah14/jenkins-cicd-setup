@@ -11,41 +11,50 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 git url: "${REPO_URL}", branch: 'main'
+                echo 'Repository Clone completed'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                dir('frontend') {
+                dir('demo-fe-be/frontend') {
                     sh 'npm install'
                 }
+                echo 'Dependencies Installation completed'
             }
         }
 
         stage('Run Tests') {
             steps {
-                dir('frontend') {
+                dir('demo-fe-be/frontend') {
                     sh 'npm test'
                 }
+                echo 'Tests Execution completed'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                dir('frontend') {
+                dir('demo-fe-be/frontend') {
                     script {
                         dockerImage = docker.build("${DOCKER_IMAGE_NAME}")
                     }
                 }
+                echo 'Docker Image Build completed'
             }
         }
 
         stage('Deploy with Docker Compose') {
             steps {
-                sh 'docker-compose down'
-                sh 'docker-compose up -d --build'
+                script {
+                    // Make sure the docker-compose.yml file is in the correct path
+                    dir('demo-fe-be/frontend') {
+                        sh 'docker-compose down'
+                        sh 'docker-compose up -d --build'
+                    }
+                }
+                echo 'Deployment with Docker Compose completed'
             }
         }
-
-    
-
+    }
+}
