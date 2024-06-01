@@ -27,7 +27,7 @@ To get started with this project, follow these steps:
 
 ## Configuration
 
-You can configure the backend URL by updating the `backendUrl` variable in `config.json`. This file can be found at the root of the project.
+You can configure the backend URL by updating the `backendUrl` variable in `config.json`. This file can be found in the frontend/src directory.
 
 ```json
 {
