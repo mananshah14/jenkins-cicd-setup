@@ -8,9 +8,7 @@ To get started with this project, follow these steps:
 
 
 1. Clone the repository.
-2. Install dependencies for the front end using `npm install`.
-3. Start the development server for the front end using `npm start`.
-4. Make sure the backend server is running (see instructions below).
+2. Make sure the backend server is running (see instructions below).
 
 ## Usage
 
