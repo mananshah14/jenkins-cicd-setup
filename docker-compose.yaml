@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  jenkins:
+    image: jenkinsci/blueocean:latest
+    container_name: jenkins
+    restart: always
+    networks:
+      - jenkins
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+    ports:
+      - 8080:8080
+      - 50000:50000
+
+  jenkins-agent:
+    image: jenkins/inbound-agent:latest
+    container_name: jenkins-agent
+    restart: always
+    user: root  
+    networks:
+      - jenkins
+    environment:
+      - JENKINS_URL=http://jenkins:8080
+      - JENKINS_AGENT_NAME=jenkins-agent
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker    
+
+networks:
+  jenkins:
+
+volumes:
+  jenkins_data:
