@@ -9,7 +9,7 @@ This is a two-tier application.
 
 #### 2 Tier Application Deployment Approach (LLD)
 
-![image](https://github.com/mananshah14/jenkins-cicd-setup/assets/45019538/2d991da0-0a71-4cea-bb9a-5addd0621be6)
+![image](https://github.com/mananshah14/jenkins-cicd-setup/assets/45019538/2cb3e9d6-759d-448c-8949-4e3db924c338)
 
 
 ## Getting Started
