@@ -25,6 +25,23 @@ To get started with this project, follow these steps:
 - Click the "Send Request" button to interact with the backend.
 - View the response received from the backend.
 
+
+## Running the Backend
+To run the backend server, follow these steps:
+
+1. Navigate to the backend directory.
+2. Build the Image using the given DockerFile.
+3. Run the Backend server by running.
+
+               OR
+Run the Jenkinsfile in the jenkins server which Build, Test and Deploy the entire backend. 
+   
+```
+docker-compose up -d
+```
+
+Once your backend is up and running, can proceed with setting up of frontend, Do Ensure to make the below configuration  before setting up th frontend
+
 ## Configuration
 
 You can configure the backend URL by updating the `backendUrl` variable in `config.json`. This file can be found in the frontend/src directory.
@@ -36,16 +53,3 @@ You can configure the backend URL by updating the `backendUrl` variable in `conf
 ```
 
 Update the backendUrl value to match the URL of your backend server.
-
-## Running the Backend
-To run the backend server, follow these steps:
-
-pre-requisites: `python 3.11`
-
-1. Navigate to the backend directory.
-2. Build the Image using the given DockerFile.
-3. Run the Backend server by running.
-   
-```
-docker-compose up -d
-```
