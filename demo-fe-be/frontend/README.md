@@ -6,12 +6,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `docker build -t frontend .`
+Running the Frontend
+To run the Frontend server, follow these steps:
 
-### `docker-compose up -d` 
+Run the Jenkinsfile in the jenkins server which Build, Test and Deploy the entire frontend with its backend configured in the docker-compose file.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs the app in the development mode
+Open [http://localhost:3000] to view it in your browser.
+
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
