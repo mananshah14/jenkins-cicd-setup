@@ -1,4 +1,4 @@
-## jenkins-cicd-setup
+## Jenkins-cicd-setup
 
 To set up a Jenkins environment for Continuous Integration (CI) and Continuous Deployment (CD) with auto-scaling agents, Docker support, and basic CI checks, follow these steps with instructions to deploy thisin single step:-
 
@@ -8,7 +8,7 @@ To set up a Jenkins environment for Continuous Integration (CI) and Continuous D
 
 ### Steps Overview:
   1. Set up Jenkins Master & auto-Scaling Agents to Handle Multiple CI/CD Pipelines 
-  2. Demo Repository for Testing which consists of docker based deployment & Basic CI Checks
+  2. Demo Repository for Testing which consists of docker based deployment running CI/CD Pipelines 
     
     
 ### Detailed Steps:
@@ -52,7 +52,7 @@ docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
 A demo repository is provided at demo-fe-be/. which consists of backend and frontend microservices of a 2 Tier application. You can build and test the microservices with the help of provided Jenkinsfile and dockerfile configured.
 
-The Jenkins master is available at http://localhost:8080.Jenkins agents will automatically scale to handle multiple jobs.
+The Jenkins master is available at http://localhost:8080, Jenkins agents will automatically scale to handle multiple jobs.
 
 #### Stopping the Setup
 
